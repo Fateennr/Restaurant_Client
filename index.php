@@ -33,18 +33,14 @@
 // $totalRequests = $row['count'];
 ?>
 
-<?php include 'db.php'; ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>My Project</title>
-</head>
-<body>
-    <h1>Welcome to My Project</h1>
-    <!-- Add your project code here -->
-</body>
-</html>
+<?php
+// Start the session
+session_start();
 
+// Check if the user is logged in by checking the session
+if (!isset($_SESSION['user_id'])) {
+    // If not logged in, redirect to the login page
+    header("Location: login.html");
+    exit();
+}
+?>
